@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+html, body {
+  @apply bg-soft-gradient text-gray-700 font-sans overflow-x-hidden;
+}
+
+/* Smooth transitions for everything */
+* {
+  transition: all 0.25s ease-in-out;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #a7c7e7;
+  border-radius: 20px;
+}
+
+/* Subtle link hover */
+a:hover {
+  color: #4C6EF5;
+}
+
+/* Button defaults */
+button {
+  @apply rounded-xl shadow-calm font-medium;
+}
+
+/* Glass effect card base */
+.glass-card {
+  @apply bg-white/60 backdrop-blur-xl border border-white/30 shadow-calm rounded-3xl;
+}
+
+/* Fade animation for sections */
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}

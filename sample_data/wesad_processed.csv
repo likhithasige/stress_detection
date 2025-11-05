@@ -1,0 +1,21 @@
+# Load dataset
+df = pd.read_csv("stress_data.csv")
+
+# Example: features and labels
+X = df.drop("label", axis=1).values
+y = df["label"].values
+
+# Encode labels (if categorical)
+encoder = LabelEncoder()
+y_encoded = encoder.fit_transform(y)
+y_cat = to_categorical(y_encoded)
+
+# Scale features
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Reshape for Conv1D or LSTM (samples, timesteps, features)
+X_reshaped = X_scaled.reshape(X_scaled.shape[0], X_scaled.shape[1], 1)
+
+# Train/test split
+X_train, X_test, y_train, y_test = train_test_split(X_reshaped, y_cat, test_size=0.2, random_state=42)
